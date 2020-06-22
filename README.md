@@ -35,9 +35,9 @@ It is hypothesized that snow-surface temperature as measured by IR radiometers c
 
 The data used in this project came from the CRREL &amp; UCSB Energy Site (CUES) at an elevation of 2940 m on Mammoth Mountain in the eastern Sierra Nevada of California (37.643, -119.029) from a record spanning March-April 2017 (Bair et al., 2015; Bair et al., 2018). Measurements at this site are made from a raised platform, 6 m above the snow-free ground surface. This site includes measurements of snow surface temperature from an Apogee IR radiometer, mounted on a boom that extends off the platform pointing down at the adjacent snow surface, which was maintained at a height of 1 m above the snow surface. The radiometer measures the brightness temperature within 8-14 um, and has an accuracy of 0.2 K, meaning temperature variations smaller than this value are indistinguishable from noise. Any surface temperature fluctuations that may represent turbulent fluxes or wind speed would need to exceed this threshold. Air temperature and relative humidity were measured by a Campbell Scientific HMP45C mounted about 3 m above the platform. A Lufft WS600 UMB ultrasonic anemometer measured three-component wind speeds with an accuracy of ± 1 m/s and ± 3° also mounted about 3 m above the platform.
 
-| ![Fig1](fig1.png) |
+| ![Fig1](images/fig1.png) |
 | --- |
-| _ **Figure 1:** (a) The CUES study site platform above the snow surface from which measurements from March 2017 (of air temperature, relative humidity, wind speed and direction, and snow surface temperature) were used. (b) Location of CUES on Mammoth Mountain, California within the eastern Sierra Nevada. Figure reproduced from Bair et al. (2015)._ |
+| **Figure 1:** (a) The CUES study site platform above the snow surface from which measurements from March 2017 (of air temperature, relative humidity, wind speed and direction, and snow surface temperature) were used. (b) Location of CUES on Mammoth Mountain, California within the eastern Sierra Nevada. Figure reproduced from Bair et al. (2015)._ |
 
 ## Methods:
 
@@ -51,38 +51,36 @@ In this project turbpy is used to estimate the turbulent fluxes (sensible heat f
 The bulk Richardson number is a ratio of the consumption of turbulence to the generation of turbulence by wind shear.
 
 
-| --- | --- |
-| ![Eq1](eq1.png) | _(1)_ |
+
+| ![Eq1](images/eq1.png) | _(1)_ |
 | --- | --- |
 
 Where the buoyant consumption of turbulence is a function of: (gravitational acceleration), (virtual temperature), (virtual potential temperature gradient over distance ), and the shear production of turbulence is a function of: and , the change in horizontal winds in the x and y directions. A critical bulk Richardson number can be defined (typically Ric = 0.25) for idealized situations. The critical number describes the threshold above which there would be stable conditions where turbulence is consumed by buoyancy more than it&#39;s generated, and below which there would be unstable conditions with shear generated turbulence more than can be consumed by buoyancy.
 
 Each bulk aerodynamic method within turbpy defines a scaling parameter, , that is a function of Ri (see the different formulations of in Table 1 within Lapo et al., 2019). This scaling parameter is used alongside the von Karman constant (), and surface roughness length (), to calculate the conductance parameter, (Eqn. 2).
 
-| --- | --- |
-| ![Eq2](eq2.png) | _(2)_ |
+
+| ![Eq2](images/eq2.png) | _(2)_ |
 | --- | --- |
 
 #### Monin-Obukhov scaling theory methods:
 
 The conductance parameter used in the Monin-Obukhov scaling theory methods uses two stability correction parameters, and, for momentum and heat respectively. These stability correction parameters are a function of the Obukov Length (Eqn. 3), with (Lapo et al., 2019).
 
-| --- | --- |
-| ![Eq3](eq3.png) | _(3)_ |
+
+| ![Eq3](images/eq3.png) | _(3)_ |
 | --- | --- |
 
 The Obukhov length, L (Eqn. 4), is defined via dimensional analysis (Garratt, 1992). This length scale describes the relative contributions to turbulent flow from momentum and buoyancy. Momentum flux is represented by friction velocity, , the surface stress at the land-atmosphere interface (Eqn. 5). Buoyancy is represented by a buoyancy flux term, (Eqn. 6), and the von Karman constant, .
 
-| --- | --- |
-| ![Eq4](eq4.png) | _(4)_ |
+
+| ![Eq4](images/eq4.png) | _(4)_ |
 | --- | --- |
 
-| --- | --- |
-| ![Eq5](eq5.png) | _(5)_ |
+| ![Eq5](images/eq5.png) | _(5)_ |
 | --- | --- |
 
-| --- | --- |
-| ![Eq6](eq6.png) | _(6)_ |
+| ![Eq6](images/eq6.png) | _(6)_ |
 | --- | --- |
 
 Nine different turbulence schemes are used within turbpy to estimate the turbulent fluxes at the CUES site for March 1st and March 20th. For each day, the ensemble of turbulent fluxes are compared to identify how these different methods respond to the same forcing data. Differences between the methods are explored, and outlier methods are removed to compute an ensemble mean. The ensemble mean is used two compare the two wind and temperature gradient regimes.
@@ -93,9 +91,9 @@ Chosen to represent a weaker wind regime, March 1st had a large temperature grad
 
 March 20th represents a stronger wind regime and had a small temperature gradient between snow and air (Fig. 3f), 6 °C at night, decreasing to \&lt; 5 °C during the day, and later on \&lt; 1 °C in the evening as winds picked up. Air temperatures had a range -2 °C to 5 °C, similar to March 1st, but snow temperatures were much warmer, between -5 °C and 0 °C (Fig. 2d). Winds were stronger on the 20th, from 2 ms-1 to 11 m s-1, reaching maximum speeds around 6 PM (Fig. 2e).
 
-| ![Fig2](fig2.png) |
+| ![Fig2](images/fig2.png) |
 | --- |
-| _ **Figure 2:** For the two days of observations used in this project, timeseries plots of (a,d) air and surface temperatures, (b,e) wind speeds, and (c,f) bulk Richardson numbers._ |
+| **Figure 2:** For the two days of observations used in this project, timeseries plots of (a,d) air and surface temperatures, (b,e) wind speeds, and (c,f) bulk Richardson numbers._ |
 
 ### Bulk Richardson Number:
 
@@ -103,9 +101,9 @@ Under the weak wind conditions on March 1st, the bulk Richardson number is much 
 
 With stronger wind conditions and warmer snow surface temperatures on March 20th, throughout the day Ri \&lt; 1, except for a few short periods (Fig. 2f). In the night and early morning Ri fluctuates above and below the critical value, indicating that the boundary later is switching between short periods of weak stability and periods of turbulence. This nighttime period corresponds with the lower wind speeds averaging about 5 ms-1. In the daytime, Ri \&lt;\&lt; 0.1, which indicates turbulent conditions and corresponds with wind speeds up to 11 ms-1.
 
-| ![Fig3](fig3.png) |
+| ![Fig3](images/fig3.png) |
 | --- |
-| _ **Figure 3:** For the two days of observations used in this project, timeseries plots of (a,e) air and surface temperatures, (b,f) temperature gradients, and sensible heat flux estimated with (c,g) bulk aerodynamic methods and with (d,h) Monin-Obukhov methods._ |
+| **Figure 3:** For the two days of observations used in this project, timeseries plots of (a,e) air and surface temperatures, (b,f) temperature gradients, and sensible heat flux estimated with (c,g) bulk aerodynamic methods and with (d,h) Monin-Obukhov methods. |
 
 ### Sensible Heat Flux:
 
@@ -117,9 +115,9 @@ On March 20th, we can see that at the higher wind speeds throughout the day, all
 
 The turbpy documentation and source code (Lapo, 2018) provides additional information about why the capped methods might be deviating from the other methods, especially in the weaker wind regime on March 1st. These methods include a threshold Richardson number, that &quot;caps&quot; the maximum value Rist is allowed to reach. For the bulk aerodynamic Louis (1979) method, Rist = 0.026; and for the Monin-Obukhov Holtslag and de Bruin method (Holtslag &amp; De Bruin, 1988), Rist = 1.43. Therefore, on March 1st where Ri is typically much larger than these threshold values, these two methods force Ri to a lower value, producing erroneously high Qh values as if there conditions were much more turbulent than observed. The capped methods were removed before computing an ensemble mean sensible heat flux for each day.
 
-| ![Fig4](fig4.png) |
+| ![Fig4](images/fig4.png) |
 | --- |
-| _ **Figure 4:** Visualizing the sensitivity of estimated sensible heat flux to (a,c) wind speeds, and (b,d) temperature gradients._ |
+| **Figure 4:** Visualizing the sensitivity of estimated sensible heat flux to (a,c) wind speeds, and (b,d) temperature gradients. |
 
 ## Conclusions and Future Work:
 
@@ -129,9 +127,9 @@ The two methods that introduced a &quot;capped&quot; Richardson number methods d
 
 Future work can address the original motivating question, now with ensemble-mean records of sensible heat flux at the CUES site for these two days. Figure 5 shows a preliminary coherence plot (Fig. 5c) between snow-surface temperature and the ensemble-mean sensible heat flux as well as and frequency spectra for each (Fig. 5 d,e).
 
-| ![Fig5](fig5.png) |
+| ![Fig5](images/fig5.png) |
 | --- |
-|  **Figure 5** : Time series of (a) snow-surface temperature, (b) ensemble-mean sensible heat flux, and their resulting (c) coherence. Frequency spectra of (d) snow-surface temperature and (e) sensible heat flux variations._ ![](RackMultipart20200622-4-1pv2em9_html_9f13706d11a306e1.png) |
+|  **Figure 5** : Time series of (a) snow-surface temperature, (b) ensemble-mean sensible heat flux, and their resulting (c) coherence. Frequency spectra of (d) snow-surface temperature and (e) sensible heat flux variations. |
 
 
 ## References:
